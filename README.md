@@ -6,11 +6,11 @@
 
 使用本项目复现的代码对中心数量分别为5、10、15、20的数据集进行聚类的效果图如下（数据集大小为1万）
 
-<img src="image/PHASE2-5cluster.png" align="left" height="300">
-<img src="image/PHASE2-10cluster.png" align="left" height="300">
+![5cluster](image/PHASE2-5cluster.png)
+![10cluster](image/PHASE2-10cluster.png)
 
-<img src="image/PHASE2-15cluster.png" align="left" height="300">
-<img src="image/PHASE2-20cluster.png" align="left" height="300">
+![15cluster](image/PHASE2-15cluster.png)
+![20cluster](image/PHASE2-20cluster.png)
 
 
 ## 使用方法
@@ -62,7 +62,7 @@ until k个簇的簇中心不再发生变化
 
 k-means算法示意图如下： 
 
-<img src="image/kmeans.png" align="left" height="400">
+![kmeans](image/kmeans.png)
 
 ### PAM算法
 算法简介：PAM算法是k-medoids算法的变种，PAM算法并不是采用簇的均值作为簇中心，而是选择簇中距平均值最近的对象作为簇中心
@@ -83,7 +83,7 @@ until k个簇的簇中心不再发生变化
 
 PAM算法示意图如下： 
 
- <img src="image/pam.png" align="left" height="400">
+![pam](image/pam.png)
 
 ## 研究现状
 尽管k-medoids具有更好的鲁棒性，但是由于其计算复杂度过高，所以人们用的主要还是k-means算法。有许多研究者尝试解决k-medoids算法的效率问题，
@@ -91,7 +91,7 @@ PAM算法示意图如下：
 
 解决k-medoids算法效率问题的各种举措可以按照以下三个维度进行划分
 
- <img src="image/kmedoids_category.png" align="left" height="400">
+![kmedoids_category](image/kmedoids_category.png)
  
 通过上表，我们可以清楚看到 
 - global search与entire data的使用可以提高算法的准确率，但会降低算法的效率
@@ -116,7 +116,7 @@ search可以提高效率，也是一个高效率+高准确率的组合。***
 
 ***可以发现每个阶段都是高效率+高准确率的组合，PAMAE算法就是通过这种“一快一准”的策略组合，再加上MapReduce的并行处理，以达到高效率和高准确率之间的平衡***
 
- <img src="image/pamae.png" align="left" height="150">
+![pamae](image/pamae.png)
 
 ## PAMAE算法描述
 PAMAE算法分为如下两个阶段 
@@ -138,7 +138,7 @@ for subset in subsets:
 
 第一阶段的算法示意图如下： 
 
-  <img src="image/phase1.png" align="left" height="500">
+![phase1](image/phase1.png)
  
 #### Phase 2
 经过Phase 1的步骤，已经得到了一个近似的聚类中心集合，但是Phase
@@ -150,7 +150,7 @@ data中得到的，因此可能与真实的中心还存在一定的偏差，第�
 
 第二阶段的算法示意图如下： 
 
-  <img src="image/phase2.png" align="left" height="500">
+![phase2](image/phase2.png)
 
 ## 实验结果
 数据集大小为1万，不同中心数量的数据集，第一阶段和第二阶段聚类结果如下所示。可以看到，经过Phase
@@ -159,23 +159,23 @@ data中得到的，因此可能与真实的中心还存在一定的偏差，第�
  
 簇中心数量为5：
  
-  <img src="image/PHASE1-5cluster.png" align="left" height="300">
-<img src="image/PHASE2-5cluster.png" align="left" height="300">
+![PHASE1-5cluster](image/PHASE1-5cluster.png)
+![PHASE2-5cluster](image/PHASE2-5cluster.png)
 
 簇中心数量为10：
 
- <img src="image/PHASE1-10cluster.png" align="left" height="300">
-<img src="image/PHASE2-10cluster.png" align="left" height="300">
+![PHASE1-10cluster](image/PHASE1-10cluster.png)
+![PHASE2-10cluster](image/PHASE2-10cluster.png)
  
 簇中心数量为15：
  
- <img src="image/PHASE1-15cluster.png" align="left" height="300">
-<img src="image/PHASE2-15cluster.png" align="left" height="300">
+![PHASE1-15cluster](image/PHASE1-15cluster.png)
+![PHASE2-15cluster](image/PHASE2-15cluster.png)
 
 簇中心数量为20：
 
-<img src="image/PHASE1-20cluster.png" align="left" height="300">
-<img src="image/PHASE2-20cluster.png" align="left" height="300">
+![PHASE1-20cluster](image/PHASE1-20cluster.png)
+![PHASE2-20cluster](image/PHASE2-20cluster.png)
 
 ## 不足
 本项目使用python的并行编程模拟Spark与Hadoop的MapReduce并行计算，运算速度不如MapReduce。由于Phase
