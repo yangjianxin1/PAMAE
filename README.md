@@ -140,7 +140,7 @@ for subset in subsets:
 
 ![phase1](image/phase1.jpg)
  
-#### Phase 2
+### Phase 2
 经过Phase 1的步骤，已经得到了一个近似的聚类中心集合，但是Phase
 1中的中心集合是从sampled
 data中得到的，因此可能与真实的中心还存在一定的偏差，第二阶段就是为了对第一阶段生成的中心集合进行微调
